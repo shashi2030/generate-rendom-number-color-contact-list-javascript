@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ghibli App</title>
+  
+  
+  <style>
+  li{
+	padding:5px;
+	list-style:none;
+  }
+  span{
+	margin-right:10px;
+	width:30px;
+	height:20px;
+	padding-top:8px;
+	padding-bottom:3px;
+	display:inline-block;
+	border-radius:50%;
+	text-align:center;
+	color:#fff;
+  }
+  </style>
+
+</head>
+
+<body>
+
+
+  <ul id="container">
+	
+  </ul>
+
+  <script >
+	var color = ["#89d1fe","#9a89fe","#fe89e7",'red','green'];
+	var duplicatecolor = [...color];
+	var removedColor = null;
+	var ee;
+	var names = ["Smith","Michael","Doe John", "Sess OO" , "EUE Ee", "DEsdsdf ", "sdwer ", "eteer ", "test sss"];
+	var container = document.getElementById("container");
+	
+	
+	for(var i = 0; i < names.length;i++){
+	
+		var li = document.createElement("li");
+		container.appendChild(li);
+		li.innerHTML = names[i];
+		var span1 = document.createElement("span");		
+		var bgcolor = Math.floor(Math.random() * duplicatecolor.length);
+		
+		
+		span1.setAttribute("style", "background:"+duplicatecolor[bgcolor]);
+		if(duplicatecolor.length <= 1){
+			removedColor = duplicatecolor[bgcolor];			
+			duplicatecolor = [...color];
+			ee = duplicatecolor.indexOf(removedColor);
+			duplicatecolor.splice(ee, 1);
+		}
+		duplicatecolor.splice(bgcolor, 1);
+		li.prepend(span1);
+		var namelength = names[i];
+		span1.innerHTML = namelength[0];
+		
+	}
+  </script>
+</body>
+
+</html>
